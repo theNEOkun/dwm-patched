@@ -10,8 +10,8 @@ Subject: [PATCH] Adding placemouse patch
 
 diff --git a/config.def.h b/config.def.h
 index 1c0b587..86f878a 100644
---- a/config.def.h
-+++ b/config.def.h
+--- a/config.h
++++ b/config.h
 @@ -104,7 +104,17 @@ static Button buttons[] = {
  	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
  	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
