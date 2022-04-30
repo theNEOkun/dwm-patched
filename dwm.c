@@ -903,19 +903,19 @@ focusmon(const Arg *arg)
 	focus(NULL);
 }
 
-void
+	void
 focusstackvis(const Arg *arg)
 {
 	focusstack(arg->i, 0);
 }
 
-void
+	void
 focusstackhid(const Arg *arg)
 {
 	focusstack(arg->i, 1);
 }
 
-void
+	void
 focusstack(int inc, int hid)
 {
 	Client *c = NULL, *i;
@@ -929,12 +929,12 @@ focusstack(int inc, int hid)
 	if (inc > 0) {
 		if (selmon->sel)
 			for (c = selmon->sel->next;
-					 c && (!ISVISIBLE(c) || (!hid && HIDDEN(c)));
-					 c = c->next);
+					c && (!ISVISIBLE(c) || (!hid && HIDDEN(c)));
+					c = c->next);
 		if (!c)
 			for (c = selmon->clients;
-					 c && (!ISVISIBLE(c) || (!hid && HIDDEN(c)));
-					 c = c->next);
+					c && (!ISVISIBLE(c) || (!hid && HIDDEN(c)));
+					c = c->next);
 	} else {
 		if (selmon->sel) {
 			for (i = selmon->clients; i != selmon->sel; i = i->next)
@@ -1879,7 +1879,7 @@ setfullscreen(Client *c, int fullscreen)
 	}
 }
 
-void
+	void
 togglefullscreen(const Arg *arg)
 {
 	if(selmon->sel)
