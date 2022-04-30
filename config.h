@@ -20,6 +20,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
+//Changed the names
 static const char *tags[] = { "一", "二", "三", "四" };
 
 static const Rule rules[] = {
