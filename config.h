@@ -92,7 +92,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY,                       XK_s,      show,           {0} },
-	{ MODKEY|Altkey,				XK_s,	   showkeys,		{0} },
+	//{ MODKEY|Altkey,				XK_s,	   showkeys,		{0} },
 	{ MODKEY,                       XK_h,      hide,           {0} },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
