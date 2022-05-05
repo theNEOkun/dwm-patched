@@ -217,6 +217,7 @@ static void sendmon(Client *c, Monitor *m);
 static void setclientstate(Client *c, long state);
 static void setfocus(Client *c);
 static void setfullscreen(Client *c, int fullscreen);
+static void showkeys(const Arg *arg);
 static void togglefullscreen(const Arg *arg);
 static void setlayout(const Arg *arg);
 static void setmfact(const Arg *arg);
@@ -2100,6 +2101,17 @@ setfullscreen(Client *c, int fullscreen)
 		c->h = c->oldh;
 		resizeclient(c, c->x, c->y, c->w, c->h);
 		arrange(c->mon);
+	}
+}
+
+void
+showkeys(const Arg *arg)
+{
+	const int size = sizeof(keys)/sizeof(Key);
+	for(int i = 0; i < size; i++) {
+		Key currKey = keys[i];
+		printf("%d", currKey.mod);
+		printf("%ld", currKey.keysym);
 	}
 }
 
