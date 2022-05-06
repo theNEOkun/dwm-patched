@@ -67,9 +67,9 @@ static const char *powercmd[] = {"rofi-power", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_m,      spawn,          {.v = dmenucmd } },
-	{ Altkey,			            XK_m,      spawn,          {.v = powercmd } },
-	{ MODKEY,						XK_Return, spawn,          {.v = termcmd } },
+	//{ MODKEY,                       XK_m,      spawn,          {.v = dmenucmd } },
+	//{ Altkey,			            XK_m,      spawn,          {.v = powercmd } },
+	//{ MODKEY,						XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
