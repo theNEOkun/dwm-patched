@@ -34,6 +34,7 @@ static const Rule rules[] = {
 	{ "discord",  NULL,		  NULL,		  0,			0,			 -1 },
 	{ "VirtualBox Machine", NULL, NULL,		1,			1,			 -1 },
 	{ "feh",	  NULL,       NULL,       1,            1,           -1 },
+	{ "Steam",	  NULL,       "Friends List",       1,            1,           -1 },
 };
 
 /* layout(s) */
