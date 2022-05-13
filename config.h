@@ -36,6 +36,7 @@ static const Rule rules[] = {
 	{ "feh",	  NULL,       NULL,       1,            1,           -1 },
 	{ "Steam",	  NULL,       "Friends List",       1,            1,           -1 },
 	{ "Steam",    NULL,       "Steam - News",       1,            1,            -1 },
+	{ "Steam",    NULL,       "Steam - Self Updater", 1,     1,    -1 },
 };
 
 /* layout(s) */
