@@ -35,6 +35,7 @@ static const Rule rules[] = {
 	{ "VirtualBox Machine", NULL, NULL,		1,			1,			 -1 },
 	{ "feh",	  NULL,       NULL,       1,            1,           -1 },
 	{ "Steam",	  NULL,       "Friends List",       1,            1,           -1 },
+	{ "Steam",    NULL,       "Steam - News",       1,            1,            -1 },
 };
 
 /* layout(s) */
