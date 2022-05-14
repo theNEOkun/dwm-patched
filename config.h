@@ -29,14 +29,14 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       1,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Firefox",  NULL,       NULL,       0,       0,           -1 },
 	{ "discord",  NULL,		  NULL,		  0,			0,			 -1 },
-	{ "VirtualBox Machine", NULL, NULL,		1,			1,			 -1 },
-	{ "feh",	  NULL,       NULL,       1,            1,           -1 },
-	{ "Steam",	  NULL,       "Friends List",       1,            1,           -1 },
-	{ "Steam",    NULL,       "Steam - News",       1,            1,            -1 },
-	{ "Steam",    NULL,       "Steam - Self Updater", 1,     1,    -1 },
+	{ "VirtualBox Machine", NULL, NULL,		0,			1,			 -1 },
+	{ "feh",	  NULL,       NULL,       0,            1,           -1 },
+	{ "Steam",	  NULL,       "Friends List",       0,            1,           -1 },
+	{ "Steam",    NULL,       "Steam - News",       0,            1,            -1 },
+	{ "Steam",    NULL,       "Steam - Self Updater", 0,     1,    -1 },
 };
 
 /* layout(s) */
