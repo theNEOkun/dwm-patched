@@ -36,7 +36,8 @@ static const Rule rules[] = {
 	{ "feh",	  NULL,       NULL,       0,            1,           -1 },
 	{ "Steam",	  NULL,       "Friends List",       0,            1,           -1 },
 	{ "Steam",    NULL,       "Steam - News",       0,            1,            -1 },
-	{ "Steam",    NULL,       "Steam - Self Updater", 0,     1,    -1 },
+	{ "Steam",    NULL,       "Steam - Self Updater", 0,     1,      -1 },
+	{ "ProtonUp-Qt",NULL,	  NULL,		  0,		1,				 -1 },
 };
 
 /* layout(s) */
