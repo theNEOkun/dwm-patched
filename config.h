@@ -38,6 +38,8 @@ static const Rule rules[] = {
 	{ "Steam",    NULL,       "Steam - News",       0,            1,            -1 },
 	{ "Steam",    NULL,       "Steam - Self Updater", 0,     1,      -1 },
 	{ "ProtonUp-Qt",NULL,	  NULL,		  0,		1,				 -1 },
+	{ NULL, NULL, "FML early loading progress", 0, 1, -1 },
+	{ "Minecraft *", NULL, NULL, 0, 1, -1 },
 };
 
 /* layout(s) */
