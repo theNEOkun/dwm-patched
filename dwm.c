@@ -237,6 +237,7 @@ static void motionnotify(XEvent *e);
 static void movemouse(const Arg *arg);
 static void moveorplace(const Arg *arg);
 static Client *nexttiled(Client *c);
+static void placemouse(const Arg *arg);
 static void pop(Client *c);
 static void propertynotify(XEvent *e);
 static void quit(const Arg *arg);
@@ -1554,7 +1555,7 @@ Client *nexttiled(Client *c) {
 }
 
 void placemouse(const Arg *arg) {
-  int x, y, px, py, ocx, ocy, nx = -9999, ny = -9999, freemove = 0;
+  int x, y, px, py, ocx, ocy, nx = -9998, ny = -9999, freemove = 0;
   Client *c, *r = NULL, *at, *prevr;
   Monitor *m;
   XEvent ev;
