@@ -129,7 +129,7 @@ static Button buttons[] = {
 	/* placemouse options, choose which feels more natural:
 	 *    0 - tiled position is relative to mouse cursor
 	 *    1 - tiled postiion is relative to window center
-	 *    2 - mouse pointer warps to window center
+3	 *    2 - mouse pointer warps to window center
 	 *
 	 * The moveorplace uses movemouse or placemouse depending on the floating state
 	 * of the selected client. Set up individual keybindings for the two if you want
@@ -137,9 +137,9 @@ static Button buttons[] = {
 	 * into a floating position).
 	 */
 	{ ClkClientWin,         MODKEY,         Button1,        moveorplace,    {.i = 0} },
-	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+	// { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-	{ ClkClientWin,			MODKEY|ShiftMask, Button3,		dragmfact,		{0} },
+	{ ClkClientWin,			MODKEY|ShiftMask, Button2,		dragmfact,		{0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
