@@ -429,3 +429,4 @@ index 4465af1..e780189 100644
  void
  unfocus(Client *c, int setfocus)
  {
+
