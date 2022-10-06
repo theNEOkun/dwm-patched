@@ -1347,6 +1347,7 @@ focusmon(const Arg* arg)
   unfocus(selmon->sel, 0);
   selmon = m;
   focus(NULL);
+  // If there is a Client, move the mose there
   if (selmon->sel)
     XWarpPointer(dpy,
                  None,
@@ -1357,6 +1358,19 @@ focusmon(const Arg* arg)
                  0,
                  selmon->sel->w / 2,
                  selmon->sel->h / 2);
+  else {
+	  // If there isn't a client, move the mouse to the middle of the screen
+    XWarpPointer(dpy,
+                 None,
+                 root,
+                 0,
+                 0,
+                 0,
+                 0,
+                 selmon->wx + selmon->ww / 2,
+                 selmon->wy + selmon->wh / 2);
+    return;
+  }
 }
 
 void
