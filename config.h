@@ -101,9 +101,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|Altkey,                XK_comma,  focusmon_nomove,       {.i = -1 } },
 	{ MODKEY|Altkey,                XK_period, focusmon_nomove,       {.i = +1 } },
-	{ MODKEY|Altkey,                XK_h,      show,           {0} },
+	{ MODKEY|Altkey|ShiftMask,                XK_h,      show,           {0} },
 	//{ MODKEY|Altkey,				XK_s,	   showkeys,		{0} },
-	{ MODKEY,                       XK_h,      hide,           {0} },
+	{ MODKEY|Altkey,                       XK_h,      hide,           {0} },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ Altkey,						XK_f,		togglefullscreen, {0} },
@@ -125,8 +125,8 @@ static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	// { ClkWinTitle,          0,              Button1,        togglewin,      {0} },
-	// { ClkWinTitle,          0,              Button2,        zoom,           {0} },
+	{ ClkWinTitle,          MODKEY,         Button1,        togglewin,      {0} },
+	{ ClkWinTitle,          MODKEY,         Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	/* placemouse options, choose which feels more natural:
 	 *    0 - tiled position is relative to mouse cursor
