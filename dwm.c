@@ -2576,13 +2576,15 @@ sigchld(int unused)
 void
 spawn(const Arg* arg)
 {
-  if (fork() == 0) {
-    if (dpy)
-      close(ConnectionNumber(dpy));
-    setsid();
-    execvp(((char**)arg->v)[0], (char**)arg->v);
-    die("dwm: execvp '%s' failed:", ((char**)arg->v)[0]);
-  }
+	if (arg->v == dmenucmd)
+		dmenumon[0] = '0' + selmon->num;
+	if (fork() == 0) {
+		if (dpy)
+			close(ConnectionNumber(dpy));
+		setsid();
+		execvp(((char **)arg->v)[0], (char **)arg->v);
+		die("dwm: execvp '%s' failed:", ((char **)arg->v)[0]);
+	}
 }
 
 void
