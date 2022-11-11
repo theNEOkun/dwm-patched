@@ -28,18 +28,19 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       0,       0,           -1 },
-	{ "discord",  NULL,		  NULL,		  0,			0,			 -1 },
-	{ "VirtualBox Machine", NULL, NULL,		0,			1,			 -1 },
-	{ "feh",	  NULL,       NULL,       0,            1,           -1 },
-	{ "Steam",	  NULL,       "Friends List",       0,            1,           -1 },
-	{ "Steam",    NULL,       "Steam - News",       0,            1,            -1 },
-	{ "Steam",    NULL,       "Steam - Self Updater", 0,     1,      -1 },
-	{ "ProtonUp-Qt",NULL,	  NULL,		  0,		1,				 -1 },
-	{ NULL, NULL, "FML early loading progress", 0, 1, -1 },
-	{ "Minecraft *", NULL, NULL, 0, 1, -1 },
+	/* class                instance   title     tags mask     isfloating   monitor */
+	{  "Gimp",              NULL,      NULL,     0,            1,           -1},
+	{  "Firefox",           NULL,      NULL,     0,            0,           -1},
+	{  "discord",           NULL,      NULL,     0,            0,           -1},
+	{  "VirtualBox Machine",NULL,      NULL,     0,            1,           -1},
+	{  "feh",               NULL,      NULL,     0,            1,           -1},
+	{  "Steam",             NULL,      "Friends List", 0,      1,           -1},
+	{  "Steam",             NULL,      "Steam - News",0,       1,           -1},
+	{  "Steam",             NULL,      "Steam - Self Updater",0,1,          -1},
+	{  "ProtonUp-Qt",       NULL,      NULL,     0,            1,           -1},	
+	{  NULL,                NULL,      "FML early loading progress",0,  1,  -1},
+	{  "Minecraft *",       NULL,      NULL,     0,            1,           -1},
+	{  "Zoom *",            NULL,      NULL,     0,            1,           -1}
 };
 
 /* layout(s) */
@@ -91,8 +92,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_p,      setlayout,      {.v = &layouts[2]} },
+	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, // Sets it to be floating
+	// { MODKEY,                       XK_p,      setlayout,      {.v = &layouts[2]} }, // Sets it to be monocel
 	// { MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
