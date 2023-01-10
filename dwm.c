@@ -340,8 +340,6 @@ setfocus(Client* c);
 static void
 setfullscreen(Client* c, int fullscreen);
 static void
-showkeys(const Arg* arg);
-static void
 togglefullscreen(const Arg* arg);
 static void
 setlayout(const Arg* arg);
