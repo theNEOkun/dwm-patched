@@ -1,5 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
+#define TRUE 1
+#define FALSE 0
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -29,19 +32,25 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class                instance   title     tags mask     isfloating   monitor */
-	{  "Gimp",              NULL,      NULL,     0,            1,           -1},
-	{  "Firefox",           NULL,      NULL,     0,            0,           -1},
-	{  "discord",           NULL,      NULL,     0,            0,           -1},
-	{  "VirtualBox Machine",NULL,      NULL,     0,            1,           -1},
-	{  "feh",               NULL,      NULL,     0,            1,           -1},
-	{  "Steam",             NULL,      "Friends List", 0,      1,           -1},
-	{  "Steam",             NULL,      "Steam - News",0,       1,           -1},
-	{  "Steam",             NULL,      "Steam - Self Updater",0,1,          -1},
-	{  "ProtonUp-Qt",       NULL,      NULL,     0,            1,           -1},	
-	{  NULL,                NULL,      "FML early loading progress",0,  1,  -1},
-	{  "Minecraft *",       NULL,      NULL,     0,            1,           -1},
-	{  NULL,                "Zoom *",  NULL,     0,            1,           -1},
-	{  NULL,                "zoom",    NULL,     0,            1,           -1}
+
+	{  "Gimp",              NULL,      NULL,     0,            TRUE,           -1},
+	{  "Firefox",           NULL,      NULL,     0,            FALSE,           -1},
+	{  "discord",           NULL,      NULL,     0,            FALSE,           -1},
+	{  "VirtualBox Machine",NULL,      NULL,     0,            TRUE,           -1},
+	{  "feh",               NULL,      NULL,     0,            TRUE,           -1},
+	{  "Steam",             NULL,      "Friends List", 0,      TRUE,           -1},
+	{  "Steam",             NULL,      "Steam - News",0,       TRUE,           -1},
+	{  "Steam",             NULL,      "Steam - Self Updater",0,TRUE,          -1},
+	{  "ProtonUp-Qt",       NULL,      NULL,     0,            TRUE,           -1},	
+	{  NULL,                NULL,      "FML early loading progress",0,  TRUE,  -1},
+	{  "Minecraft *",       NULL,      NULL,     0,            TRUE,           -1},
+	{  NULL,                "Zoom *",  NULL,     0,            TRUE,           -1},
+	{  NULL,                "zoom",    NULL,     0,            TRUE,           -1},
+	{  "seahorse",          NULL,      NULL,     0,            TRUE,           -1},
+	{  "float:*",           NULL,      NULL,     0,            TRUE,           -1},
+	{  "*-gtk",             NULL,      NULL,     0,            TRUE,           -1},
+	{  "gcr-prompter",      NULL,      NULL,     0,            TRUE,           -1}
+
 };
 
 /* layout(s) */
@@ -72,43 +81,43 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"rofi-run", NULL};//{ "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = {"allacritty", NULL };
+static const char *termcmd[]  = {"allacritty -e tmux", NULL };
 static const char *powercmd[] = {"rofi-power", NULL};
 
 static Key keys[] = {
+
 	/* modifier                     key        function        argument */
 	//{ MODKEY,                       XK_m,      spawn,          {.v = dmenucmd } },
 	//{ Altkey,			            XK_m,      spawn,          {.v = powercmd } },
 	//{ MODKEY,						XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
+	{ MODKEY,                       XK_b,           togglebar,              {0} },
+	{ MODKEY,                       XK_j,       focusstackvis,       {.i = +1 } },
+	{ MODKEY,                       XK_k,       focusstackvis,       {.i = -1 } },
 	// { MODKEY|ShiftMask,             XK_j,      focusstackhid,  {.i = +1 } },
 	// { MODKEY|ShiftMask,             XK_k,      focusstackhid,  {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_period,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_comma,      setmfact,       {.f = +0.05} },
-	{ MODKEY|Altkey,                XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_i,          incnmaster,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_i,          incnmaster,       {.i = -1 } },
+	{ MODKEY,                       XK_period,       setmfact,     {.f = -0.05} },
+	{ MODKEY,                       XK_comma,        setmfact,     {.f = +0.05} },
+	{ MODKEY|Altkey,                XK_Return,           zoom,              {0} },
+	{ MODKEY,                       XK_Tab,              view,              {0} },
+	{ MODKEY|ShiftMask,             XK_c,          killclient,              {0} },
 	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, // Sets it to be floating
 	// { MODKEY,                       XK_p,      setlayout,      {.v = &layouts[2]} }, // Sets it to be monocel
-	// { MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_l,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_h, focusmon,       {.i = +1 } },
-	{ MODKEY|Altkey,                XK_l,  focusmon_nomove,       {.i = -1 } },
-	{ MODKEY|Altkey,                XK_h, focusmon_nomove,       {.i = +1 } },
-	{ MODKEY|Altkey|ShiftMask,                XK_h,      show,           {0} },
+	{ MODKEY|ControlMask,           XK_space,  setlayout,    {.v = &layouts[0]} }, // Set to tiling
+	{ MODKEY|ShiftMask,             XK_space,  togglefloating,              {0} },
+	{ MODKEY,                       XK_0,                view,      {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_0,                 tag,      {.ui = ~0 } },
+	{ MODKEY,                       XK_l,            focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_h,            focusmon,       {.i = +1 } },
+	{ MODKEY|Altkey,                XK_l,     focusmon_nomove,       {.i = -1 } },
+	{ MODKEY|Altkey,                XK_h,     focusmon_nomove,       {.i = +1 } },
+	{ MODKEY|Altkey|ShiftMask,      XK_h,                show,              {0} },
 	//{ MODKEY|Altkey,				XK_s,	   showkeys,		{0} },
-	{ MODKEY|Altkey,                       XK_h,      hide,           {0} },
-	{ MODKEY|ShiftMask,             XK_l,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_h, tagmon,         {.i = +1 } },
-	{ Altkey,						XK_f,		togglefullscreen, {0} },
+	{ MODKEY|Altkey,                XK_h,                hide,              {0} },
+	{ MODKEY|ShiftMask,             XK_l,              tagmon,       {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_h,              tagmon,       {.i = +1 } },
+	{ Altkey,                       XK_f,            togglefullscreen,      {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -118,7 +127,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_q,                   quit,           {0} },
+
 };
 
 /* button definitions */
