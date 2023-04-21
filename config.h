@@ -34,8 +34,8 @@ static const Rule rules[] = {
 	/* class                instance   title     tags mask     isfloating   monitor */
 
 	{  "Gimp",              NULL,      NULL,     0,            TRUE,           -1},
-	{  "Firefox",           NULL,      NULL,     0,            FALSE,           -1},
-	{  "discord",           NULL,      NULL,     0,            FALSE,           -1},
+	{  "Firefox",           NULL,      NULL,     0,            FALSE,          -1},
+	{  "discord",           NULL,      NULL,     0,            FALSE,          -1},
 	{  "VirtualBox Machine",NULL,      NULL,     0,            TRUE,           -1},
 	{  "feh",               NULL,      NULL,     0,            TRUE,           -1},
 	{  "Steam",             NULL,      "Friends List", 0,      TRUE,           -1},
@@ -83,6 +83,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = {"rofi-run", NULL};//{ "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = {"allacritty -e tmux", NULL };
 static const char *powercmd[] = {"rofi-power", NULL};
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "alacritty", "--title", scratchpadname, NULL };
 
 static Key keys[] = {
 
@@ -90,6 +92,7 @@ static Key keys[] = {
 	//{ MODKEY,                       XK_m,      spawn,          {.v = dmenucmd } },
 	//{ Altkey,			            XK_m,      spawn,          {.v = powercmd } },
 	//{ MODKEY,						XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_Return,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,           togglebar,              {0} },
 	{ MODKEY,                       XK_j,       focusstackvis,       {.i = +1 } },
 	{ MODKEY,                       XK_k,       focusstackvis,       {.i = -1 } },
