@@ -31,26 +31,25 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                instance   title     tags mask     isfloating   monitor */
-
-	{  "Gimp",              NULL,      NULL,     0,            TRUE,           -1},
-	{  "Firefox",           NULL,      NULL,     0,            FALSE,          -1},
-	{  "discord",           NULL,      NULL,     0,            FALSE,          -1},
-	{  "VirtualBox Machine",NULL,      NULL,     0,            TRUE,           -1},
-	{  "feh",               NULL,      NULL,     0,            TRUE,           -1},
-	{  "Steam",             NULL,      "Friends List", 0,      TRUE,           -1},
-	{  "Steam",             NULL,      "Steam - News",0,       TRUE,           -1},
-	{  "Steam",             NULL,      "Steam - Self Updater",0,TRUE,          -1},
-	{  "ProtonUp-Qt",       NULL,      NULL,     0,            TRUE,           -1},	
-	{  NULL,                NULL,      "FML early loading progress",0,  TRUE,  -1},
-	{  "Minecraft *",       NULL,      NULL,     0,            TRUE,           -1},
-	{  NULL,                "Zoom *",  NULL,     0,            TRUE,           -1},
-	{  NULL,                "zoom",    NULL,     0,            TRUE,           -1},
-	{  "seahorse",          NULL,      NULL,     0,            TRUE,           -1},
-	{  "float:*",           NULL,      NULL,     0,            TRUE,           -1},
-	{  "*-gtk",             NULL,      NULL,     0,            TRUE,           -1},
-	{  "gcr-prompter",      NULL,      NULL,     0,            TRUE,           -1}
-
+	/* class                instance   title     tags mask     isfloating   monitor scratch */
+	{  "Gimp",              NULL,      NULL,     0,            TRUE,           -1, 0},
+	{  "Firefox",           NULL,      NULL,     0,            FALSE,          -1, 0},
+	{  "discord",           NULL,      NULL,     0,            FALSE,          -1, 0},
+	{  "VirtualBox Machine",NULL,      NULL,     0,            TRUE,           -1, 0},
+	{  "feh",               NULL,      NULL,     0,            TRUE,           -1, 0},
+	{  "Steam",             NULL,      "Friends List", 0,      TRUE,           -1, 0},
+	{  "Steam",             NULL,      "Steam - News",0,       TRUE,           -1, 0},
+	{  "Steam",             NULL,      "Steam - Self Updater",0,TRUE,          -1, 0},
+	{  "ProtonUp-Qt",       NULL,      NULL,     0,            TRUE,           -1, 0},	
+	{  NULL,                NULL,      "FML early loading progress",0,  TRUE,  -1, 0},
+	{  "Minecraft *",       NULL,      NULL,     0,            TRUE,           -1, 0},
+	{  NULL,                "Zoom *",  NULL,     0,            TRUE,           -1, 0},
+	{  NULL,                "zoom",    NULL,     0,            TRUE,           -1, 0},
+	{  "seahorse",          NULL,      NULL,     0,            TRUE,           -1, 0},
+	{  "float:*",           NULL,      NULL,     0,            TRUE,           -1, 0},
+	{  "*-gtk",             NULL,      NULL,     0,            TRUE,           -1, 0},
+	{  "gcr-prompter",      NULL,      NULL,     0,            TRUE,           -1, 0},
+	{ NULL,                 NULL,"scratchpad",   0,            TRUE,           -1, 's'}
 };
 
 /* layout(s) */
@@ -81,10 +80,11 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"rofi-run", NULL};//{ "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = {"allacritty -e tmux", NULL };
+static const char *termcmd[]  = {"alacritty -e tmux", NULL };
 static const char *powercmd[] = {"rofi-power", NULL};
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "alacritty", "--title", scratchpadname, NULL };
+/*First arg only serves to match against key in rules*/
+static const char *scratchpadcmd[] = {"s", "alacritty", "--title", scratchpadname, NULL}; 
 
 static Key keys[] = {
 
